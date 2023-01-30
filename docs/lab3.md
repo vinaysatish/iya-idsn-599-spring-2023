@@ -80,7 +80,7 @@ permalink: /lab-3/
             var template = `Hello! My name is ${person}, and I am the founder and CEO of ${company}. We are a(n) ${size} company that is publicly traded on the ${city} Stock Exchange. We are currently valued at ${number} US Dollars. We sell a ${product} that helps ${plural} ${verb} ${adverb}. If you like ${gerund}, come work for us!`;
             story.innerHTML = template;
             story.style.display = "block";
-            story.innerHTML += `<p><a href="/lab-3/">Try new words!</a></p>`;
+            story.innerHTML += `<p><a href="${window.location.pathname}">Try new words!</a></p>`;
         });
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("person") && urlParams.get("company") && urlParams.get("size") && urlParams.get("city") && urlParams.get("number") && urlParams.get("product") && urlParams.get("plural") && urlParams.get("verb") && urlParams.get("adverb") && urlParams.get("gerund")) {
@@ -98,7 +98,7 @@ permalink: /lab-3/
             var template = `Hello! My name is ${person}, and I am the founder and CEO of ${company}. We are a(n) ${size} company that is publicly traded on the ${city} Stock Exchange. We are currently valued at ${number} US Dollars. We sell a ${product} that helps ${plural} ${verb} ${adverb}. If you like ${gerund}, come work for us!`;
             story.innerHTML = template; 
             story.style.display = "block";
-            story.innerHTML += `<p><a href="/lab-3/">Try new words!</a></p>`;
+            story.innerHTML += `<p><a href="${window.location.pathname}">Try new words!</a></p>`;
         }
     </script>
     <style>
