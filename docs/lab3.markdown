@@ -109,5 +109,5 @@ permalink: /lab-3/
             margin-bottom: 1rem;
         }
     </style>
-    </div>
+  </div>
 </article>
