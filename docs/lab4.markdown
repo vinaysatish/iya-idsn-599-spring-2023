@@ -33,10 +33,8 @@ permalink: /lab-4/
                         <img src="{{ row['picture.medium'] }}">
                         <p class="title">{{ row['name.first'] }} {{ row['name.last'] }}</p>
                         <p>{{ row['location.city'] }}, {{ row['location.state'] }}, {{ row['location.country'] }}, {{ row['location.postcode'] }}</p>
-                        <div class="buttons">
-                            <button type="button" onclick="alert('Email: {{ row['email'] }}')">Email</button>
-                            <button type="button" onclick="alert('Phone: {{ row['phone'] }}')">Phone</button>
-                        </div>
+                        <p><a href="mailto:{{ row['email'] }}" title="{{ row['email'] }}">Email</a></p>
+                        <p><a href="tel:{{ row['phone'] }}" title="{{ row['phone'] }}">Phone</a></p>
                     </div>
                 </div>
         {% if loopindex == 0 %}
@@ -53,16 +51,6 @@ permalink: /lab-4/
         .title {
             font-weight: bold;
             font-size: 18px;
-        }
-        .buttons button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            margin: 5px 0;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
         }
         .column {
             float: left;
