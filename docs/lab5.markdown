@@ -35,7 +35,6 @@ permalink: /lab-5/
                     todoItems[todoItem] = false;
                 }
                 localStorage.setItem('todoItems', JSON.stringify(todoItems));
-                console.log(localStorage.getItem('todoItems'));
             });
             if (todoItems[todoItem]) {
                 todoCheckbox.checked = true;
@@ -51,14 +50,12 @@ permalink: /lab-5/
                 todoItemElement.remove();
                 delete todoItems[todoItem];
                 localStorage.setItem('todoItems', JSON.stringify(todoItems));
-                console.log(localStorage.getItem('todoItems'));
             });
             todoItemElement.appendChild(todoCheckbox);
             todoItemElement.appendChild(document.createTextNode(todoItem));
             todoItemElement.appendChild(todoDelete);
             document.getElementById('todo-list').appendChild(todoItemElement);
         }
-        console.log(localStorage.getItem('todoItems'));
         // Render any existing todo items
         for (const todoItem in todoItems) {
             renderTodoListItem(todoItem);
@@ -67,14 +64,13 @@ permalink: /lab-5/
         const todoSubmit = document.getElementById('todo-submit');
         const todoInput = document.getElementById('todo-input');
         todoSubmit.addEventListener('click', function() {
-            if (todoInput.value === '') {
+            if (todoInput.value === '' || todoInput.value in todoItems) {
                 return;
             }
             // add the todoInput to localStorage
             todoItems[todoInput.value] = false;
             renderTodoListItem(todoInput.value);
             todoInput.value = '';
-            console.log(localStorage.getItem('todoItems'));
         });
         // Button to clear all checked items
         const todoClear = document.getElementById('todo-clear');
@@ -89,14 +85,12 @@ permalink: /lab-5/
             for (const todoItem in todoItems) {
                 renderTodoListItem(todoItem);
             }
-            console.log(localStorage.getItem('todoItems'));
         });
         // Button to clear all items
         const todoClearAll = document.getElementById('todo-clear-all');
         todoClearAll.addEventListener('click', function() {
             localStorage.setItem('todoItems', JSON.stringify({}));
             document.getElementById('todo-list').innerHTML = '';
-            console.log(localStorage.getItem('todoItems'));
         });
     </script>
     <style>
